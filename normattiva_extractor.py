@@ -102,8 +102,7 @@ def extract_lavori_preparatori(html_content: str):
     - Title
     - Publication date (in ISO 8601 format)
     - Brief description
-    - Senate content
-    - Chamber of Deputies content
+    - Full 'Lavori Preparatori' content (including Senato and Camera)
     """
     start_time = time.time()
     soup = BeautifulSoup(html_content, "html.parser")
@@ -136,32 +135,16 @@ def extract_lavori_preparatori(html_content: str):
         if sibling_tag:
             description = sanitize_text(str(sibling_tag).strip())
 
-    # Extract LAVORI PREPARATORI section
+    # Extract LAVORI PREPARATORI (Full Content)
     pre_tag = soup.find("pre", class_="inline")
-    lavori_text = pre_tag.get_text("\n", strip=True) if pre_tag else ""
-
-    # Extract Senate and Camera Content
-    content_senato, content_camera = "", ""
-    if "Senato della Repubblica" in lavori_text and "Camera dei deputati" in lavori_text:
-        senato_start = lavori_text.index("Senato della Repubblica")
-        camera_start = lavori_text.index("Camera dei deputati")
-        if senato_start < camera_start:
-            content_senato, content_camera = lavori_text[senato_start:camera_start], lavori_text[camera_start:]
-        else:
-            content_camera, content_senato = lavori_text[camera_start:senato_start], lavori_text[senato_start:]
-
-    elif "Senato della Repubblica" in lavori_text:
-        content_senato = lavori_text.strip()
-    elif "Camera dei deputati" in lavori_text:
-        content_camera = lavori_text.strip()
+    lavori_preparatori = sanitize_text(pre_tag.get_text("\n", strip=True)) if pre_tag else "N/A"
 
     logging.info(f"Finished extraction in {time.time() - start_time:.2f} seconds")
 
-    return [title, date, description, sanitize_text(content_camera), sanitize_text(content_camera)]
+    return [title, date, description, lavori_preparatori]
 
 
-def extract_normattiva_data(url: str,
-                            csv_file_path = "normattiva_db.csv"):
+def extract_normattiva_data(url: str, csv_file_path="normattiva_db.csv"):
     """
     Extracts data from the main page and 'lavori preparatori' page and saves it to a CSV file.
     """
@@ -170,11 +153,15 @@ def extract_normattiva_data(url: str,
     extracted_data = extract_lavori_preparatori(html)
 
     # Create DataFrame
-    df = pd.DataFrame([extracted_data + [num_articles, full_text_url]], columns=["title", "date", "description", "senato", "camera", "articles", "full_text_url"])
+    df = pd.DataFrame(
+        [extracted_data + [num_articles, full_text_url]],
+        columns=["titolo", "data", "descrizione", "lavori_preparatori", "num_articoli", "full_text_url"],
+    )
     logging.info(df)
-    
+
+    # Check if CSV file exists to avoid duplicate headers
     header_needed = not os.path.exists(csv_file_path)
-    df.to_csv(csv_file_path, mode='a', index=False, header=header_needed, encoding='utf-16')
+    df.to_csv(csv_file_path, mode="a", index=False, header=header_needed, encoding="utf-16", quoting=csv.QUOTE_ALL)
 
 
 if __name__ == "__main__":
