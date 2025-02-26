@@ -1,0 +1,17 @@
+# Features:
+- presentor: on. / sen. / ministro / presidente del consiglio dei ministri / ... # (?<=presentato da )... ci possono essere missing
+- isRatifica: bool
+- isConversione: bool
+
+# Altre info:
+- partito politico: '(Lega)' / '(DC)' # forse sono troppo pochi (da estrarre?)
+- legislatura
+- governo di riferimento
+
+# Activities + Chamber + Commissione di appartenenza:
+1. Presentazione + 1 persona
+2. Assegnazione a Commissione
+2. Esame in Commissione
+3. Richiesta Parere
+4. Esame in Aula
+5. Approvazione
