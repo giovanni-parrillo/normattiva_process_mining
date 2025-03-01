@@ -1,0 +1,7 @@
+Per far girare il classificatore serve:
+- installare Ollama (https://ollama.com/download): praticamente è l'interfaccia con cui possiamo scaricare e gestire modelli open source da una libreria online
+- installare la libreria python di ollama (pip install ollama)
+- scaricare in locale il modello che si vuole usare tramite il comando a terminale pull, e.g.: "ollama pull llama3.2:1B"
+- ovviamente, se volete cambiare il modello (attualmente llama3.2:1B) dovete cambiare la stringa con il nome del modello da usare nel codice del classificatore
+- potete avere una lista di modelli disponibili (sono tanti) qui: https://ollama.com/search
+
