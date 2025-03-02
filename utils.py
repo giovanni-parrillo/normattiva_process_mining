@@ -27,7 +27,6 @@ def rimuovi_stopwords(tokens):
     return tokens_no_stopwords
 
 def extract_ngrams(text, n):
-    # Tokenizza il testo
     tokens = word_tokenize(text.lower())
     
     # Filtra i tokens per rimuovere stopwords e caratteri non alfanumerici
@@ -57,31 +56,69 @@ def print_ngrams(ngrams):
     for ngram, freq in ngrams:
         print(f"{' '.join(ngram)}: {freq}")
 
-# Funzione per estrarre chi ha presentato la proposta di legge usando REGEX "Proposto"
-def extract_proposers(text):
-    proposers = re.findall(r'Proposto da ([\w\s]+)', text)
-    return proposers
+#### NORMALIZZAZIONE TESTO
 
-####
+def roman_to_int(roman):
+    """Converte un numero romano in un numero intero."""
+    roman_numerals = {
+        'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6, 'VII': 7, 'VIII': 8,
+        'IX': 9, 'X': 10, 'XI': 11, 'XII': 12, 'XIII': 13, 'XIV': 14, 'XV': 15,
+        'XVI': 16, 'XVII': 17, 'XVIII': 18, 'XIX': 19, 'XX': 20
+    }
+    return roman_numerals.get(roman, roman)  # Ritorna l'intero o la stringa originale se non è un numero romano
 
 def replace_abbreviations(text):
-    """Sostituisce abbreviazioni comuni nel testo con le loro forme estese."""
+    """Sostituisce abbreviazioni comuni e normalizza i numeri ordinali e romani nel testo."""
     if not isinstance(text, str):  # Controllo per evitare errori con valori NaN o non stringhe
         return text
 
     replacements = {
         r"(?:(?<=\s)|(?<='))sen\.": "Senatore",
         r"(?:(?<=\s)|(?<='))on\.": "Onorevole",
-        r"(?:(?<=\s)|(?<='))A\.? ?C\.?": "Atto Camera"
+        r"(?:(?<=\s)|(?<='))A\.? ?C\.?": "Atto Camera",
+        r"(?:(?<=\s)|(?<='))n\.": "numero"
     }
 
     for pattern, replacement in replacements.items():
         text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
 
     # Normalizzazione dei numeri ordinali (1° -> 1)
-    text = re.sub(r"(\d{1,2})°(?=\s+[a-zA-Zà-ùÀ-Ù]+)", r"\1", text)
+    text = re.sub(r"(\d{1,2})[°|ª](?=\s+[a-zA-Zà-ùÀ-Ù]+)", r"\1", text)
+
+    # Sostituzione dei numeri romani con interi (solo quelli tra I e XX per sicurezza)
+    text = re.sub(r"\b(I{1,3}|IV|V?I{0,3}|IX|X{1,2}|X?I{0,3})\b", 
+                  lambda match: str(roman_to_int(match.group(0))), text)
 
     return text
 
-### ACTIVITIES EXTRACTION
+### ACTIVITIES EXTRACTION - da cancellare ?
 
+def find_activity_chunk_and_date(df_corpus, buffer, regex_chunk):
+    results = []  # Lista per raccogliere i risultati
+    
+    regex_date = r"(\d{1,2})\s([a-zA-Zà-ùÀ-Ù]+)\s(\d{4})"
+    
+    for index, row in df_corpus.iterrows():
+        sentences = row[buffer]  # Lista di frasi già estratte
+        
+        for sentence in sentences:
+            # Cerca il match per 'presentato da' nella frase
+            match = re.search(regex_chunk, sentence, re.IGNORECASE)
+            
+            if match:
+                #print("Frase trovata:", sentence)  # Debug
+                
+                # Cerca la data nella stessa frase
+                match_date = re.search(regex_date, sentence)
+                
+                # Aggiungi la tupla (id, presentato_da, data)
+                results.append((
+                    row['id'], 
+                    match.group(0).strip(),
+                    match_date.group(0).strip() if match_date else None
+                ))
+                
+                # Una volta trovato, possiamo interrompere la ricerca in altre frasi
+                break
+    
+    return results
