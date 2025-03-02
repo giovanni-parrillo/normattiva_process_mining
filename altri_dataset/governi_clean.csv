@@ -1,0 +1,69 @@
+id,prime_minister,start,end,party,government
+1,Alcide De Gasperi,1946-07-14,1947-02-02,Democrazia Cristiana,De Gasperi II
+2,Alcide De Gasperi,1947-02-02,1947-06-1º,Democrazia Cristiana,De Gasperi III
+3,Alcide De Gasperi,1947-06-1º,1948-05-24,Democrazia Cristiana,De Gasperi IV
+4,Alcide De Gasperi,1948-05-24,1950-01-27,Democrazia Cristiana,De Gasperi V
+5,Alcide De Gasperi,1950-01-27,1951-07-26,Democrazia Cristiana,De Gasperi VI
+6,Alcide De Gasperi,1951-07-26,1953-07-16,Democrazia Cristiana,De Gasperi VII
+7,Alcide De Gasperi,1953-07-16,1953-08-17,Democrazia Cristiana,De Gasperi VIII
+8,Giuseppe Pella,1953-08-17,1954-01-19,Democrazia Cristiana,Pella
+9,Amintore Fanfani,1954-01-19,1954-02-10,Democrazia Cristiana,Fanfani I
+10,Mario Scelba,1954-02-10,1955-07-06,Democrazia Cristiana,Scelba
+11,Antonio Segni,1955-07-06,1957-05-20,Democrazia Cristiana,Segni I
+12,Adone Zoli,1957-05-20,1958-07-02,Democrazia Cristiana,Zoli
+13,Amintore Fanfani,1958-07-02,1959-02-16,Democrazia Cristiana,Fanfani II
+14,Antonio Segni,1959-02-16,1960-03-26,Democrazia Cristiana,Segni II
+15,Fernando Tambroni,1960-03-26,1960-07-27,Democrazia Cristiana,Tambroni
+16,Amintore Fanfani,1960-07-27,1962-02-22,Democrazia Cristiana,Fanfani III
+17,Amintore Fanfani,1962-02-22,1963-06-22,Democrazia Cristiana,Fanfani IV
+18,Giovanni Leone ,1963-06-22,1963-12-05,Democrazia Cristiana,Leone I
+19,Aldo Moro,1963-12-05,1964-07-23,Democrazia Cristiana,Moro I
+20,Aldo Moro,1964-07-23,1966-02-24,Democrazia Cristiana,Moro II
+21,Aldo Moro,1966-02-24,1968-06-25,Democrazia Cristiana,Moro III
+22,Giovanni Leone,1968-06-25,1968-12-13,Democrazia Cristiana,Leone II
+23,Mariano Rumor,1968-12-13,1969-08-06,Democrazia Cristiana,Rumor I
+24,Mariano Rumor,1969-08-06,1970-03-28,Democrazia Cristiana,Rumor II
+25,Mariano Rumor,1970-03-28,1970-08-06,Democrazia Cristiana,Rumor III
+26,Emilio Colombo,1970-08-06,1972-02-18,Democrazia Cristiana,Colombo
+27,Giulio Andreotti,1972-02-18,1972-06-26,Democrazia Cristiana,Andreotti I
+28,Giulio Andreotti,1972-06-26,1973-07-08,Democrazia Cristiana,Andreotti II
+29,Mariano Rumor,1973-07-08,1974-03-15,Democrazia Cristiana,Rumor IV
+30,Mariano Rumor,1974-03-15,1974-11-23,Democrazia Cristiana,Rumor V
+31,Aldo Moro,1974-11-23,1976-02-12,Democrazia Cristiana,Moro IV
+32,Aldo Moro,1976-02-12,1976-07-30,Democrazia Cristiana,Moro V
+33,Giulio Andreotti,1976-07-30,1978-03-13,Democrazia Cristiana,Andreotti III
+34,Giulio Andreotti,1978-03-13,1979-03-21,Democrazia Cristiana,Andreotti IV
+35,Giulio Andreotti,1979-03-21,1979-08-05,Democrazia Cristiana,Andreotti V
+36,Francesco Cossiga,1979-08-05,1980-04-04,Democrazia Cristiana,Cossiga I
+37,Francesco Cossiga,1980-04-04,1980-10-18,Democrazia Cristiana,Cossiga II
+38,Arnaldo Forlani,1980-10-18,1981-06-28,Democrazia Cristiana,Forlani
+39,Giovanni Spadolini,1981-06-28,1982-08-23,Partito Repubblicano Italiano,Spadolini I
+40,Giovanni Spadolini,1982-08-23,1982-12-1º,Partito Repubblicano Italiano,Spadolini II
+41,Amintore Fanfani,1982-12-1º,1983-08-04,Democrazia Cristiana,Fanfani V
+42,Bettino Craxi,1983-08-04,1986-08-1º,Partito Socialista Italiano,Craxi I
+43,Bettino Craxi,1986-08-1º,1987-04-18,Partito Socialista Italiano,Craxi II
+44,Amintore Fanfani,1987-04-18,1987-07-29,Democrazia Cristiana,Fanfani VI
+45,Giovanni Goria,1987-07-29,1988-04-13,Democrazia Cristiana,Goria
+46,Ciriaco De Mita,1988-04-13,1989-07-23,Democrazia Cristiana,De Mita
+47,Giulio Andreotti,1989-07-23,1991-04-13,Democrazia Cristiana,Andreotti VI
+48,Giulio Andreotti,1991-04-13,1992-06-28,Democrazia Cristiana,Andreotti VII
+49,Giuliano Amato,1992-06-28,1993-04-29,Partito Socialista Italiano,Amato I
+50,Carlo Azeglio Ciampi,1993-04-29,1994-05-11,Indipendente,Ciampi
+51,Silvio Berlusconi,1994-05-11,1995-01-17,Forza Italia,Berlusconi I
+52,Lamberto Dini,1995-01-17,1996-05-18,Indipendente,Dini
+53,Romano Prodi,1996-05-18,1998-10-21,Indipendente di centro-sinistra,Prodi I
+54,Massimo D'Alema,1998-10-21,1999-12-22,Democratici di Sinistra,D'Alema I
+55,Massimo D'Alema,1999-12-22,2000-04-26,Democratici di Sinistra,D'Alema II
+56,Giuliano Amato,2000-04-26,2001-06-11,Indipendente di centro-sinistra,Amato II
+57,Silvio Berlusconi,2001-06-11,2005-04-23,Forza Italia,Berlusconi II
+58,Silvio Berlusconi,2005-04-23,2006-05-17,Forza Italia,Berlusconi III
+59,Romano Prodi,2006-05-17,2008-05-08,Indipendente di centro-sinistra,Prodi II
+60,Silvio Berlusconi,2008-05-08,2011-11-16,Il Popolo della Libertà,Berlusconi IV
+61,Mario Monti,2011-11-16,2013-04-28,Indipendente,Monti
+62,Enrico Letta,2013-04-28,2014-02-22,Partito Democratico,Letta
+63,Matteo Renzi,2014-02-22,2016-12-12,Partito Democratico,Renzi
+64,Paolo Gentiloni,2016-12-12,2018-06-1º,Partito Democratico,Gentiloni
+65,Giuseppe Conte,2018-06-1º,2019-09-05,Indipendente di area M5S,Conte I
+66,Giuseppe Conte,2019-09-05,2021-02-13,Indipendente di area M5S,Conte II
+67,Mario Draghi,2021-02-13,2022-10-22,Indipendente,Draghi
+68,Giorgia Meloni,2022-10-22,in carica,Fratelli d'Italia,Meloni
